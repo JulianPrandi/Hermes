@@ -8,7 +8,8 @@ var cookieParser = require("cookie-parser");
 var logger = require("morgan");
 var indexRouter = require("./routes/index.route");
 var usersRouter = require("./routes/users.route");
-var unidadRouter = require("./routes/unidad.route.js");
+var unidadRouter = require("./routes/unidad.route");
+var crewRouter = require("./routes/crew.route");
 var app = express();
 
 const { STARGRAVE_APP_SERVER_HOST, STARGRAVE_APP_SERVER_PORT } = process.env;
@@ -37,6 +38,7 @@ app.use(express.static(path.join(__dirname, "public")));
 app.use("/", indexRouter);
 app.use("/users", usersRouter);
 app.use("/unidad", unidadRouter);
+app.use("/crew", crewRouter);
 // catch 404 and forward to error handler
 app.use(function (req, res, next) {
   next(createError(404));

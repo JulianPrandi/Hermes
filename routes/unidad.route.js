@@ -4,6 +4,12 @@ var Unidad = require("../model/Unidad");
 var createNewUnit = require("../controllers/unidad.controller");
 //import { createNewUnit } from "../controllers/unidad.controller";
 
+router.get("/", (req, res, next) => {
+  res.send(
+    "<h1><center>HTML con pantalla de opciones para manipulacion de unidades</center></h1>"
+  );
+});
+
 router.get("/getUnit", function (req, res, next) {
   console.log("req: ", req.body);
   if (req.body.nombreUnidad === "canoptek sentinel") {

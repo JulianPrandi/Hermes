@@ -1,17 +1,20 @@
 const { Schema, model } = require("mongoose");
 
-const CrewSchema = new Schema({
-  crewName: {
-    type: String,
-    required: true,
+const CrewSchema = new Schema(
+  {
+    crewName: {
+      type: String,
+      required: true,
+    },
+    experience: int,
+    shipName: String,
+    credits: int,
+    shipUpgrades: Array,
+    shipsHold: Array,
   },
-  experience: int,
-  shipName: String,
-  credits: int,
-  shipUpgrades: Array,
-  shipsHold: Array,
-},{
-	timestamps:true
-});
+  {
+    timestamps: true,
+  }
+);
 
-module.export = model("Crew", CrewSchema);
+module.exports = model("Crew", CrewSchema);

@@ -12,13 +12,13 @@ const UserSchema = UserSchema(
   }
 );
 
-UserSchema.methods.encryptPassword = password =>{
-	const salt = await bcrypt.genSalt(10);
-	return await bcrypt.hash(password, salt);
+UserSchema.methods.encryptPassword = (password) => {
+  const salt = await bcrypt.genSalt(10);
+  return await bcrypt.hash(password, salt);
 };
 
-UserSchema.methods.mathPassword = function(password) {
-	return await bcrypt.compare(password, this.password);
+UserSchema.methods.mathPassword = function (password) {
+  return await bcrypt.compare(password, this.password);
 };
 
-module.export = model("User", UserSchema);
+module.exports = model("User", UserSchema);
