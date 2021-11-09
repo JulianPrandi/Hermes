@@ -42,4 +42,4 @@ const UnidadSchema = new Schema(
   }
 );
 
-module.export = model("Unidad", UnidadSchema);
+module.exports = model("Unidad", UnidadSchema);

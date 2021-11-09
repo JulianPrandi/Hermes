@@ -39,7 +39,7 @@ const createNewUnit = async (req, res) => {
     //newUnit.user = req.user.id;
     await newUnit.save();
     //req.flash("success_msg", "Note Added Successfully");
-    res.redirect("/");
+    //res.redirect("/");
   }
 };
 module.exports = createNewUnit;
