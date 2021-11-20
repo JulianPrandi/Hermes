@@ -1,10 +1,9 @@
 var express = require("express");
 var router = express.Router();
-var Unidad = require("../model/Unidad");
-var createNewUnit = require("../controllers/unidad.controller");
-//import { createNewUnit } from "../controllers/unidad.controller";
+var createNewUnit = require("../controllers/unidad.controllers");
 
 router.get("/", (req, res, next) => {
+  console.log("entro al modulo de unidad.route");
   res.send(
     "<h1><center>HTML con pantalla de opciones para manipulacion de unidades</center></h1>"
   );

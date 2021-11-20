@@ -7,10 +7,13 @@ var http = require("http");
 var cookieParser = require("cookie-parser");
 var logger = require("morgan");
 var indexRouter = require("./routes/index.route");
-var usersRouter = require("./routes/users.route");
 var unidadRouter = require("./routes/unidad.route");
 var crewRouter = require("./routes/crew.route");
+var usersRouter = require("./routes/users.route");
+var passport = require("passport");
+require("./config/passport");
 var app = express();
+var favicon = require("serve-favicon");
 
 const { STARGRAVE_APP_SERVER_HOST, STARGRAVE_APP_SERVER_PORT } = process.env;
 
@@ -30,15 +33,21 @@ app.use(function (req, res, next) {
 });
 
 //Middleware
+app.use(favicon(path.join(__dirname, "public", "images", "favicon-32x32.png")));
 app.use(logger("dev"));
 app.use(express.json());
 app.use(express.urlencoded({ extended: false }));
 app.use(cookieParser());
 app.use(express.static(path.join(__dirname, "public")));
+//app.use(passport.initialize());
+//app.use(passport.session());
+
+//Routes
 app.use("/", indexRouter);
-app.use("/users", usersRouter);
 app.use("/unidad", unidadRouter);
 app.use("/crew", crewRouter);
+app.use("/users", usersRouter);
+
 // catch 404 and forward to error handler
 app.use(function (req, res, next) {
   next(createError(404));
@@ -51,7 +60,8 @@ app.use(function (err, req, res, next) {
 
   // render the error page
   res.status(err.status || 500);
-  res.render("error");
+  res.json({ error: err });
+  //res.render("error");
 });
 
 var server = app.listen(
