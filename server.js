@@ -33,7 +33,7 @@ app.use(function (req, res, next) {
 });
 
 //Middleware
-app.use(favicon(path.join(__dirname, "public", "images", "favicon-32x32.png")));
+//app.use(favicon(path.join(__dirname, "public", "images", "favicon-32x32.png")));
 app.use(logger("dev"));
 app.use(express.json());
 app.use(express.urlencoded({ extended: false }));

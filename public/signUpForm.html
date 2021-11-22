@@ -5,7 +5,7 @@
         <meta charset="UTF-8">
         <meta name="viewport" content="width=device-width, initial-scale=1">
         <link rel="icon" href="data:image/svg+xml,<svg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 100 100%22><text y=%22.9em%22 font-size=%2290%22>🌌</text></svg>">
-        <link rel="stylesheet" href="./stylesheets/style.css">
+        <link rel="stylesheet" href="./stylesheets/style.css"> <!--../../../stylesheets/style.css-->
         <title>StarGrave Campaign log</title>
         <meta name="description" content="A basic website for keeping track of campaigns.">
     </head>
@@ -15,7 +15,7 @@
 <div class="banner">
     <h1 class="neonText">🌌 StarGrave Log 🌌</h1>
     <div class=subbanner>
-        <div class="myButtonRegister"><a href="singUpForm.html">LOG IN</a></div>
+        <div class="myButtonRegister"><a href="signUpForm.html">LOG IN</a></div>
     </div>
     <hr/>
 </div>
@@ -24,7 +24,7 @@
 </ul>
 
 <div class="login">
-<form action="index.html">
+<form method="post" action="/users/login">
     <label for="fname" class="neonTextFlickering">First name:</label><br>
     <input type="text" id="fname" name="fname" placeholder="Your name.."><br>
     <label for="pssw" class="neonTextFlickering">Password:</label><br>

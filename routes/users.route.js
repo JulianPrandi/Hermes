@@ -15,18 +15,15 @@ var controllers = require("../controllers/user.controllers");
 router.get("/", function (req, res, next) {
   res.send("respond with a resource");
 });
-/*
-router.get("/loadNewUser", createNewUser); // el que hice yo */
 
-router.get("/users/signup", controllers.renderSignUpForm); // los de fazt
-//router.get("/users/signup", function (req, res, next) {res.send("respond with a resource");});
+router.get("/signup", controllers.renderSignUpForm);
 
-router.post("/users/signup", controllers.singup);
+router.post("/signup", controllers.signup);
 
-router.get("/users/signin", controllers.renderSigninForm);
+router.get("/signin", controllers.renderSigninForm);
 
-router.post("/users/signin", controllers.signin);
+router.post("/signin", controllers.login);
 
-router.get("/users/logout", controllers.logout);
+router.get("/logout", controllers.logout);
 
 module.exports = router;

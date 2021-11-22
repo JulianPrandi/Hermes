@@ -8,11 +8,12 @@ const renderSignUpForm = (req, res) => {
   //let a = path.join(__dirname, "../public/index.html");
   //res.sendFile("../public/index.html");
   //console.log("PATH: ", a);
-  res.sendFile(path.join(__dirname, "../public/singUpForm.html"));
+  //res.sendFile(path.join(__dirname, "../public/singUpForm.html"));
+  res.redirect("../../signUpForm.html");
   //res.send("<h1><center>Trae La Unidad</center></h1>");
 };
 
-const singup = async (req, res) => {
+const signup = async (req, res) => {
   let errors = [];
   const { name, email, password, confirm_password } = req.body;
   if (password != confirm_password) {
@@ -50,7 +51,7 @@ const singup = async (req, res) => {
 const renderSigninForm = (req, res) =>
   res.sendFile("../public/singUpForm.html");
 
-const signin = passport.authenticate("local", {
+const login = passport.authenticate("local", {
   successRedirect: "/index",
   failureRedirect: "/users/signin",
   failureFlash: true,
@@ -64,8 +65,8 @@ const logout = (req, res) => {
 
 module.exports = {
   renderSignUpForm,
-  singup,
+  signup,
   renderSigninForm,
-  signin,
+  login,
   logout,
 };
